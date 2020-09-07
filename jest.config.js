@@ -19,6 +19,7 @@ module.exports = {
     'src/**/*.ts',
     '!src/**/*.d.ts',
     '!src/server.ts',
+    '!src/config/*',
     '!**/node_modules/**'
   ]
 };
