@@ -28,7 +28,7 @@
       ],
       "@graphql/*": [
         "./src/graphql/*"
-      ],
+      ]
     }
   },
   "include": [
