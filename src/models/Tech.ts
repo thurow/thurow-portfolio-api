@@ -3,7 +3,7 @@ import { model, Model, Schema } from 'mongoose'
 
 const TechSchema = new Schema<TechInterface>({
   name: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   }
 })

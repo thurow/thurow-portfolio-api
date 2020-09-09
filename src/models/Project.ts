@@ -3,14 +3,14 @@ import { model, Model, Schema } from 'mongoose'
 
 const ProjectSchema = new Schema<ProjectInterface>({
   name: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   },
   image: {
-    type: String
+    type: Schema.Types.String
   },
   description: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   },
   techs: [
@@ -21,11 +21,11 @@ const ProjectSchema = new Schema<ProjectInterface>({
     }
   ],
   projectUrl: {
-    type: String
+    type: Schema.Types.String
   },
   repositories: [
     {
-      type: String
+      type: Schema.Types.String
     }
   ]
 })
