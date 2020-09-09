@@ -23,6 +23,9 @@
       "@models/*": [
         "./src/models/*"
       ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
       "@config/*": [
         "./src/config/*"
       ],

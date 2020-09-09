@@ -14,6 +14,7 @@ module.exports = {
     ['module-resolver', {
       alias: {
         '@models': './src/models',
+        '@interfaces': './src/interfaces',
         '@graphql': './src/graphql',
         '@config': './src/config'
       }
