@@ -1,7 +1,7 @@
 import { Document } from 'mongoose'
 import { Tech } from './Tech'
 
-export interface Project extends Document {
+export type Project = {
   name: string
   image?: string
   description: string
@@ -9,3 +9,5 @@ export interface Project extends Document {
   projectUrl?: string
   repositories: string[]
 }
+
+export type ProjectDocument = Project & Document

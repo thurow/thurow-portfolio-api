@@ -1,5 +1,6 @@
 import { Document } from 'mongoose'
 
-export interface Tech extends Document {
+export type Tech = {
   name: string
 }
+export type TechDocument = Document & Tech

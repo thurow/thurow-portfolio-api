@@ -1,11 +1,11 @@
-import { Tech as TechInterface } from '@interfaces/Tech'
-import { model, Model, Schema } from 'mongoose'
+import { TechDocument } from '@interfaces/Tech'
+import { model, Schema } from 'mongoose'
 
-const TechSchema = new Schema<TechInterface>({
+const TechSchema = new Schema<TechDocument>({
   name: {
     type: Schema.Types.String,
     required: true
   }
 })
 
-export const Tech: Model<TechInterface> = model<TechInterface>('Tech', TechSchema)
+export const Tech = model<TechDocument>('Tech', TechSchema)

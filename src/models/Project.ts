@@ -1,7 +1,7 @@
-import { Project as ProjectInterface } from '@interfaces/Project'
-import { model, Model, Schema } from 'mongoose'
+import { ProjectDocument } from '@interfaces/Project'
+import { model, Schema } from 'mongoose'
 
-const ProjectSchema = new Schema<ProjectInterface>({
+const ProjectSchema = new Schema<ProjectDocument>({
   name: {
     type: Schema.Types.String,
     required: true
@@ -30,4 +30,4 @@ const ProjectSchema = new Schema<ProjectInterface>({
   ]
 })
 
-export const Project: Model<ProjectInterface> = model<ProjectInterface>('Project', ProjectSchema)
+export const Project = model<ProjectDocument>('Project', ProjectSchema)

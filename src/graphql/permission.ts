@@ -25,7 +25,12 @@ const isLoggedIn = async (resolve: () => void, _x: unknown, _y: unknown, ctx: Co
 }
 
 export default {
-  Query: {
-    secured: isLoggedIn
+  Mutation: {
+    saveTech: isLoggedIn,
+    updateTech: isLoggedIn,
+    deleteTech: isLoggedIn,
+    saveProject: isLoggedIn,
+    updateProject: isLoggedIn,
+    deleteProject: isLoggedIn
   }
 }

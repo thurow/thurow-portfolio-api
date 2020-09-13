@@ -1,4 +1,38 @@
 type Query {
-  hello(name: String): String!
-  secured: String
+  listTechs: [Tech!]!
+  listProjects: [Project!]!
+  getProject(id: ID!): Project
+}
+
+type Mutation {
+  saveTech(name: String!): Tech
+  updateTech(id: ID!, name: String!): Tech
+  deleteTech(id: ID!): Tech
+  saveProject(projectInput: ProjectProps): Project
+  updateProject(id: ID!, projectInput: ProjectProps): Project
+  deleteProject(id: ID!): Project
+}
+
+input ProjectProps {
+  name: String!
+  image: String
+  description: String!
+  techs: [number!]!
+  projectUrl: String
+  repositories: [String]
+}
+
+type Project {
+  _id: ID!
+  name: String!
+  image: String
+  description: String!
+  techs: [Tech!]!
+  projectUrl: String
+  repositories: [String]
+}
+
+type Tech {
+  _id: ID!
+  name: String!
 }
