@@ -27,7 +27,6 @@ const isLoggedIn = async (resolve: () => void, _x: unknown, _y: unknown, ctx: Co
 export default {
   Mutation: {
     saveTech: isLoggedIn,
-    updateTech: isLoggedIn,
     deleteTech: isLoggedIn,
     saveProject: isLoggedIn,
     updateProject: isLoggedIn,

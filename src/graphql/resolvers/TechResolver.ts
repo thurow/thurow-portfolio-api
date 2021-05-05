@@ -1,4 +1,4 @@
-import { Tech as TechInterface } from '@interfaces/Tech'
+import { Tech as TechInterface, TechDocument } from '@interfaces/Tech'
 import { Tech } from '@models/Tech'
 
 export const Query = {
@@ -14,7 +14,7 @@ export const Query = {
 }
 
 export const Mutation = {
-  saveTech: async (name: string): Promise<TechInterface> => {
+  saveTech: async (name: string): Promise<TechDocument> => {
     try {
       if (name.length === 0) {
         throw new Error('Name cannot be empty!')
@@ -27,30 +27,9 @@ export const Mutation = {
       throw new Error(err)
     }
   },
-  updateTech: async (id: number, name: string): Promise<TechInterface> => {
-    try {
-      if (!id || !name) {
-        throw new Error('ID or Name cannot be empty!')
-      }
-
-      const updatedTech = await Tech.findByIdAndUpdate(id, { name }).lean()
-
-      if (!updatedTech) {
-        throw new Error(`Tech with id ${id} does not exists`)
-      }
-
-      return updatedTech
-    } catch (err) {
-      throw new Error(err)
-    }
-  },
   deleteTech: async (id: number): Promise<TechInterface> => {
     try {
-      if (!id) {
-        throw new Error('ID cannot be empty!')
-      }
-
-      const tech = await Tech.findByIdAndDelete(id).lean()
+      const tech = await Tech.findByIdAndDelete(id)
 
       if (!tech) {
         throw new Error(`Tech with id ${id} does not exists`)

@@ -6,7 +6,6 @@ type Query {
 
 type Mutation {
   saveTech(name: String!): Tech
-  updateTech(id: ID!, name: String!): Tech
   deleteTech(id: ID!): Tech
   saveProject(projectInput: ProjectProps): Project
   updateProject(id: ID!, projectInput: ProjectProps): Project
