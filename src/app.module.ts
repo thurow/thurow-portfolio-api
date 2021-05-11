@@ -5,9 +5,11 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProjectsModule } from './projects/projects.module';
+import { TechsModule } from './techs/techs.module';
 
 @Module({
   imports: [
+    TechsModule,
     ProjectsModule,
     GraphQLModule.forRoot({
       debug: true,

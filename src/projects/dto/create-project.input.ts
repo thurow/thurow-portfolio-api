@@ -1,4 +1,4 @@
-import { InputType, Field } from '@nestjs/graphql';
+import { InputType, Field, ID } from '@nestjs/graphql';
 
 @InputType()
 export class CreateProjectInput {
@@ -8,8 +8,8 @@ export class CreateProjectInput {
   @Field(() => String)
   description: string;
 
-  @Field(() => [String])
-  techs: string[]; //Tech[]
+  @Field(() => [ID])
+  techs: string[];
 
   @Field(() => [String])
   repositories: string[];

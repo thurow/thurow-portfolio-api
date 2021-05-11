@@ -1,4 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { Tech } from 'src/techs/entities/tech.entity';
 
 @ObjectType()
 export class Project {
@@ -8,8 +9,8 @@ export class Project {
   @Field(() => String)
   description: string;
 
-  @Field(() => [String])
-  techs: string[]; //Tech[]
+  @Field(() => [Tech])
+  techs: Tech[];
 
   @Field(() => [String])
   repositories: string[];

@@ -2,30 +2,48 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Tech {
+  name: String!
+}
+
 type Project {
   name: String!
   description: String!
-  techs: [String!]!
+  techs: [Tech!]!
   repositories: [String!]!
   image: String
   projectUrl: String
 }
 
 type Query {
+  techs: [Tech!]!
+  tech(id: ID!): Tech!
   projects: [Project!]!
-  project(id: Int!): Project!
+  project(id: ID!): Project!
 }
 
 type Mutation {
+  createTech(createTechInput: CreateTechInput!): Tech!
+  updateTech(updateTechInput: UpdateTechInput!): Tech!
+  removeTech(id: ID!): Tech!
   createProject(createProjectInput: CreateProjectInput!): Project!
   updateProject(updateProjectInput: UpdateProjectInput!): Project!
-  removeProject(id: Int!): Project!
+  removeProject(id: ID!): Project!
+}
+
+input CreateTechInput {
+  name: String!
+}
+
+input UpdateTechInput {
+  name: String
+  id: ID!
 }
 
 input CreateProjectInput {
   name: String!
   description: String!
-  techs: [String!]!
+  techs: [ID!]!
   repositories: [String!]!
   image: String
   projectUrl: String
@@ -34,9 +52,9 @@ input CreateProjectInput {
 input UpdateProjectInput {
   name: String
   description: String
-  techs: [String!]
+  techs: [ID!]
   repositories: [String!]
   image: String
   projectUrl: String
-  id: Int!
+  id: ID!
 }
