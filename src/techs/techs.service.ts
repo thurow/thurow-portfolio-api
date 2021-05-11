@@ -1,26 +1,33 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateTechInput } from './dto/create-tech.input';
 import { UpdateTechInput } from './dto/update-tech.input';
+import { Tech, TechDocument } from './entities/tech.entity';
 
 @Injectable()
 export class TechsService {
-  create(createTechInput: CreateTechInput) {
-    return 'This action adds a new tech';
+  constructor(@InjectModel(Tech.name) private techModel: Model<TechDocument>) {}
+
+  async create(createTechInput: CreateTechInput): Promise<Tech> {
+    return this.techModel.create(createTechInput);
   }
 
-  findAll() {
-    return `This action returns all techs`;
+  async findAll(): Promise<Tech[]> {
+    return this.techModel.find().lean();
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} tech`;
+  async findOne(id: string) {
+    return this.techModel.findById(id);
   }
 
   update(id: string, updateTechInput: UpdateTechInput) {
-    return `This action updates a #${id} tech`;
+    return this.techModel.findByIdAndUpdate(id, updateTechInput, {
+      new: true,
+    });
   }
 
   remove(id: string) {
-    return `This action removes a #${id} tech`;
+    return this.techModel.findByIdAndRemove(id);
   }
 }
