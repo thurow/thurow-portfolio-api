@@ -3,6 +3,7 @@ import { ProjectsService } from './projects.service';
 import { Project } from './entities/project.entity';
 import { CreateProjectInput } from './dto/create-project.input';
 import { UpdateProjectInput } from './dto/update-project.input';
+import { ObjectId } from 'mongoose';
 
 @Resolver(() => Project)
 export class ProjectsResolver {
@@ -21,7 +22,7 @@ export class ProjectsResolver {
   }
 
   @Query(() => Project, { name: 'project' })
-  findOne(@Args('id', { type: () => ID }) id: string) {
+  findOne(@Args('id', { type: () => ID }) id: ObjectId) {
     return this.projectsService.findOne(id);
   }
 
@@ -36,7 +37,7 @@ export class ProjectsResolver {
   }
 
   @Mutation(() => Project)
-  removeProject(@Args('id', { type: () => ID }) id: string) {
+  removeProject(@Args('id', { type: () => ID }) id: ObjectId) {
     return this.projectsService.remove(id);
   }
 }

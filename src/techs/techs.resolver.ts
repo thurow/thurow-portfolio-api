@@ -3,6 +3,7 @@ import { TechsService } from './techs.service';
 import { Tech } from './entities/tech.entity';
 import { CreateTechInput } from './dto/create-tech.input';
 import { UpdateTechInput } from './dto/update-tech.input';
+import { ObjectId } from 'mongoose';
 
 @Resolver(() => Tech)
 export class TechsResolver {
@@ -19,7 +20,7 @@ export class TechsResolver {
   }
 
   @Query(() => Tech, { name: 'tech' })
-  findOne(@Args('id', { type: () => ID }) id: string) {
+  findOne(@Args('id', { type: () => ID }) id: ObjectId) {
     return this.techsService.findOne(id);
   }
 
@@ -29,7 +30,7 @@ export class TechsResolver {
   }
 
   @Mutation(() => Tech)
-  removeTech(@Args('id', { type: () => ID }) id: string) {
+  removeTech(@Args('id', { type: () => ID }) id: ObjectId) {
     return this.techsService.remove(id);
   }
 }

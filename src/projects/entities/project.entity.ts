@@ -1,6 +1,6 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Document, ObjectId, Schema as MongooseSchema } from 'mongoose';
 import { Tech } from 'src/techs/entities/tech.entity';
 
 export type ProjectDocument = Project & Document;
@@ -8,8 +8,8 @@ export type ProjectDocument = Project & Document;
 @ObjectType()
 @Schema()
 export class Project {
-  // @Field(() => ID)
-  // id: string;
+  @Field(() => ID)
+  id: ObjectId;
 
   @Field(() => String)
   @Prop({ type: String, required: true })
